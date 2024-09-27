@@ -1,7 +1,12 @@
 import React from "react";
 
-const Game = () => {
-  return <div>Game</div>;
+const Game = ({ verifyLetter }) => {
+  return (
+    <div>
+      <button onClick={verifyLetter}>FINALIZAR JOGO</button>
+      <button className="previousPage">PÁGINA ANTERIOR</button>
+    </div>
+  );
 };
 
 export default Game;
