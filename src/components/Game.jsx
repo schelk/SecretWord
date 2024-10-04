@@ -6,6 +6,7 @@ const Game = ({ verifyLetter }) => {
     <div>
       <h1>GAME</h1>
       <button onClick={verifyLetter}>FINALIZAR JOGO</button>
+      <h2>PALAVRA</h2>
     </div>
   );
 };

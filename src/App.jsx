@@ -21,13 +21,18 @@ function App() {
   const [gameStage, setGameStage] = useState(stages[0].name);
   const [words, setWords] = useState(wordsList);
 
+  //
+
+  //
+
   const pickWordAndCategory = () => {
     const categories = Object.keys(wordsList);
     console.log(categories); //Lista as categorias
-
-    const pickCategory =
-      categories[Math.floor(Math.random() * categories.length)];
-    console.log(pickCategory);
+    const category = categories[Math.floor(Math.random() * categories.length)];
+    console.log(category);
+    const word =
+      words[category][Math.floor(Math.random() * words[category].length)];
+    console.log(word);
   };
 
   const startGame = () => {
