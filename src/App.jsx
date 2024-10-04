@@ -19,10 +19,20 @@ const stages = [
 
 function App() {
   const [gameStage, setGameStage] = useState(stages[0].name);
-  const [words] = useState(wordsList);
+  const [words, setWords] = useState(wordsList);
+
+  const pickWordAndCategory = () => {
+    const categories = Object.keys(wordsList);
+    console.log(categories); //Lista as categorias
+
+    const pickCategory =
+      categories[Math.floor(Math.random() * categories.length)];
+    console.log(pickCategory);
+  };
 
   const startGame = () => {
     //Função que começa o jogo
+    pickWordAndCategory();
     setGameStage(stages[1].name);
   };
 
@@ -35,10 +45,6 @@ function App() {
   const retry = () => {
     setGameStage(stages[0].name);
   };
-
-  // const goBack = () => {
-  //   setGameStage(stages[0].name);
-  // }; FUNÇÃO PARA CHAMAR A PÁGINA ANTERIOR
 
   return (
     <div className="App">
