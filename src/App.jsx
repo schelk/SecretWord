@@ -21,28 +21,30 @@ function App() {
   const [gameStage, setGameStage] = useState(stages[0].name);
   const [words] = useState(wordsList);
 
-  //State -> pagina anterior
-  const [prevPage, setPrevPage] = useState(stages[1].name);
-
-  //Função que começa o jogo
   const startGame = () => {
+    //Função que começa o jogo
     setGameStage(stages[1].name);
   };
 
-  // processa a entrada de caracteres (atualmente esta com a função de passa o estagios)
   const verifyLetter = () => {
+    // processa a entrada de caracteres (atualmente esta com a função de passa o estagios)
     setGameStage(stages[2].name);
   };
 
-  const goBack = () => {
-    setPrevPage(stages[0].name);
+  //Acaba com o jogo
+  const retry = () => {
+    setGameStage(stages[0].name);
   };
+
+  // const goBack = () => {
+  //   setGameStage(stages[0].name);
+  // }; FUNÇÃO PARA CHAMAR A PÁGINA ANTERIOR
 
   return (
     <div className="App">
       {gameStage === "start" && <StartScreen startGame={startGame} />}
       {gameStage === "game" && <Game verifyLetter={verifyLetter} />}
-      {gameStage === "end" && <End />}
+      {gameStage === "end" && <End retry={retry} />}
     </div>
   );
 }
