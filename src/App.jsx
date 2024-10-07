@@ -1,13 +1,11 @@
-//REACT
 import React from "react";
 import { useCallback, useEffect, useState } from "react";
 
-//CSS
 import "./App.css";
 import StartScreen from "./components/StartScreen.jsx";
 import Game from "./components/Game.jsx";
 import End from "./components/End.jsx";
-//DATA
+
 import { wordsList } from "./data/words.jsx";
 
 //Stages -> Seta os estágios da página
@@ -20,11 +18,10 @@ const stages = [
 function App() {
   const [gameStage, setGameStage] = useState(stages[0].name);
   const [words, setWords] = useState(wordsList);
+  const [pickedWord, setPickedWord] = useState("");
+  const [pickedCategory, setPickedCategory] = useState("");
 
-  //
-
-  //
-
+  // Seleciona a palavra e a categoria
   const pickWordAndCategory = () => {
     const categories = Object.keys(wordsList);
     console.log(categories); //Lista as categorias
@@ -33,6 +30,8 @@ function App() {
     const word =
       words[category][Math.floor(Math.random() * words[category].length)];
     console.log(word);
+
+    return { word, category };
   };
 
   const startGame = () => {
@@ -42,11 +41,11 @@ function App() {
   };
 
   const verifyLetter = () => {
-    // processa a entrada de caracteres (atualmente esta com a função de passa o estagios)
+    // processa a entrada de caracteres (atualmente esta com a função de passar o estagios)
     setGameStage(stages[2].name);
   };
 
-  //Acaba com o jogo
+  //Reinicia o jogo
   const retry = () => {
     setGameStage(stages[0].name);
   };
