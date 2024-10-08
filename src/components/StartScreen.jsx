@@ -1,5 +1,5 @@
 import React from "react";
-import "./StartScreen.css";
+import "./styles/StartScreen.css";
 
 const StartScreen = ({ startGame }) => {
   return (
